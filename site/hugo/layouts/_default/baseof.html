@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ block "title" . }}{{ .Title }} — {{ .Site.Params.restaurant.name }}{{ end }}</title>
+  <meta name="description" content="{{ .Site.Params.restaurant.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: {{ .Site.Params.branding.primary_color }};
+      --accent: {{ .Site.Params.branding.accent_color }};
+      --bg: #faf8f5;
+      --text: #2d2d2d;
+      --muted: #6b6b6b;
+      --border: #e0dbd3;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Lato', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { color: var(--accent); }
+
+    /* Header */
+    header { background: var(--primary); color: #fff; padding: 0; }
+    .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 2rem; }
+    .site-name { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: #fff; }
+    .site-name span { color: var(--accent); }
+    nav a { color: rgba(255,255,255,0.85); margin-left: 2rem; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    nav a:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero { background: linear-gradient(rgba(44,62,45,0.75), rgba(44,62,45,0.75)), url('/images/hero.jpg'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 6rem 2rem; }
+    .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.25rem; max-width: 600px; margin: 0 auto 2rem; opacity: 0.9; }
+    .hero-cta { display: inline-block; background: var(--accent); color: var(--primary); padding: 0.85rem 2.5rem; font-weight: 700; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.9rem; }
+    .hero-cta:hover { background: #fff; color: var(--primary); }
+
+    /* Main content */
+    main { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+    h1.page-title { font-size: 2.5rem; color: var(--primary); margin-bottom: 2.5rem; text-align: center; }
+
+    /* Menu sections */
+    .menu-section { margin-bottom: 3.5rem; }
+    .menu-section h2 { font-size: 1.8rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+    .menu-section p.section-desc { color: var(--muted); font-style: italic; margin-bottom: 1.5rem; }
+    .menu-grid { display: grid; gap: 1.25rem; }
+    .menu-item { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem 1.5rem; padding: 1.25rem; background: #fff; border: 1px solid var(--border); border-radius: 6px; }
+    .menu-item h3 { font-size: 1.1rem; grid-column: 1; }
+    .menu-item .price { font-weight: 700; color: var(--primary); font-size: 1.05rem; grid-column: 2; grid-row: 1; white-space: nowrap; }
+    .menu-item .desc { grid-column: 1; color: var(--muted); font-size: 0.95rem; }
+    .menu-item .tags { grid-column: 1; font-size: 0.8rem; color: var(--accent); font-style: italic; margin-top: 0.35rem; }
+
+    /* Specials */
+    .specials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .special-card { background: var(--primary); color: #fff; padding: 2rem; border-radius: 8px; }
+    .special-card h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+    .special-card .special-price { font-size: 1.5rem; font-weight: 700; color: var(--accent); margin: 0.5rem 0; }
+    .special-card .special-days { font-size: 0.85rem; opacity: 0.75; text-transform: uppercase; letter-spacing: 0.05em; }
+    .special-card .special-note { font-size: 0.9rem; opacity: 0.8; margin-top: 0.75rem; font-style: italic; }
+
+    /* Hours table */
+    .hours-table { max-width: 500px; margin: 0 auto; }
+    .hours-table table { width: 100%; border-collapse: collapse; }
+    .hours-table th, .hours-table td { padding: 0.85rem 1.25rem; text-align: left; border-bottom: 1px solid var(--border); }
+    .hours-table th { background: var(--primary); color: #fff; font-family: 'Playfair Display', serif; }
+    .hours-table tr:nth-child(even) { background: #fff; }
+    .hours-table .closed { color: #c0392b; font-weight: 700; }
+
+    /* Footer */
+    footer { background: var(--primary); color: rgba(255,255,255,0.7); text-align: center; padding: 2rem; margin-top: 4rem; font-size: 0.9rem; }
+    footer strong { color: var(--accent); }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.2rem; }
+      .menu-item { grid-template-columns: 1fr; }
+      .menu-item .price { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="site-name">{{ .Site.Params.restaurant.name }}</div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/menu">Menu</a>
+        <a href="/specials">Specials</a>
+        <a href="/hours">Hours</a>
+      </nav>
+    </div>
+  </header>
+
+  {{ block "main" . }}{{ end }}
+
+  <footer>
+    <p><strong>{{ .Site.Params.restaurant.name }}</strong> — {{ .Site.Params.restaurant.address }}</p>
+    <p>{{ .Site.Params.restaurant.phone }} · {{ .Site.Params.restaurant.email }}</p>
+    <p style="margin-top:0.5rem; opacity:0.6;">{{ .Site.Params.social.instagram }}</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{{ define "main" }}
+<main>
+  <h1 class="page-title">Specials</h1>
+
+  {{ $hasSpecials := false }}
+  {{ range where .Site.RegularPages "Section" "specials" }}
+    {{ if .Params.available }}{{ $hasSpecials = true }}{{ end }}
+  {{ end }}
+
+  {{ if $hasSpecials }}
+    <h2 style="font-size:1.8rem; color:var(--primary); margin-bottom:1.5rem;">Available Now</h2>
+    <div class="specials-grid" style="margin-bottom:3rem;">
+      {{ range where .Site.RegularPages "Section" "specials" }}
+        {{ if .Params.available }}
+          <div class="special-card">
+            <h3>{{ .Title }}</h3>
+            <p>{{ .Description }}</p>
+            {{ with .Params.price }}<div class="special-price">${{ . }}</div>{{ end }}
+            {{ with .Params.days }}<div class="special-days">Available: {{ delimit . ", " | title }}</div>{{ end }}
+            {{ with .Params.note }}<div class="special-note">{{ . }}</div>{{ end }}
+          </div>
+        {{ end }}
+      {{ end }}
+    </div>
+  {{ end }}
+
+  <p style="text-align:center; color:var(--muted); font-style:italic;">
+    Ask your server about today's harvest selections — our menu evolves with the seasons.
+  </p>
+</main>
+{{ end }}

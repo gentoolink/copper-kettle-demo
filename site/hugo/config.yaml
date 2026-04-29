@@ -1,0 +1,36 @@
+baseURL: "https://copperkettle.ca"
+languageCode: "en-ca"
+title: "The Copper Kettle"
+theme: "the-copper-kettle"
+
+timeout: "30s"
+enableRobotsTXT: true
+enableGitInfo: false
+
+outputs:
+  home:
+    - HTML
+    - RSS
+
+markup:
+  goldmark:
+    renderer:
+      hardWraps: false
+      unsafe: true
+
+params:
+  restaurant:
+    name: "The Copper Kettle"
+    tagline: "Farm to table, heart to soul"
+    description: "Locally sourced ingredients, timeless recipes, unforgettable evenings."
+    phone: "+1 250-567-4291"
+    email: "hello@copperkettle.ca"
+    address: "142 Pioneer Avenue, Vanderhoof, BC V0J 3A0"
+  social:
+    instagram: "@copperkettle"
+    facebook: "copperkettle"
+  branding:
+    primary_color: "#2C3E2D"
+    accent_color: "#C9A84C"
+    font_heading: "Playfair Display"
+    font_body: "Lato"

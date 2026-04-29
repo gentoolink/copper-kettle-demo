@@ -1,0 +1,51 @@
+name: Rebuild Restaurant Website
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/**'
+      - 'hugo/**'
+      - 'themes/**'
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.134.2'
+          extended: true
+
+      - name: Build site
+        run: hugo --theme=the-copper-kettle --gc --minify
+
+      - name: Deploy to cPanel
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASS }}
+          FTP_TARGET: /public_html/
+        run: |
+          curl -s -T public/index.html \
+            -u "$FTP_USER:$FTP_PASS" \
+            "$FTP_HOST$FTP_TARGETindex.html" || true
+
+  # Fallback: rsync to web root
+  # - name: Deploy via rsync
+  #   uses: burnett01/rsync-deployments@1.0
+  #   with:
+  #     server: ${{ secrets.RSYNC_HOST }}
+  #     user: ${{ secrets.RSYNC_USER }}
+  #     key: ${{ secrets.RSYNC_KEY }}
+  #     port: 22
+  #     local_path: ./public/
+  #     remote_path: /home/gentoolink/public_html/

@@ -1,0 +1,55 @@
+{{ define "main" }}
+<main>
+  <h1 class="page-title">Hours</h1>
+
+  <div class="hours-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Hours</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monday</td>
+          <td>11:00 – 22:00</td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td>11:30 – 21:00</td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td>11:30 – 22:00</td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td>11:30 – 22:00</td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td>11:30 – 23:00</td>
+        </tr>
+        <tr>
+          <td>Saturday</td>
+          <td>10:00 – 23:00</td>
+        </tr>
+        <tr>
+          <td>Sunday</td>
+          <td>10:00 – 20:00</td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align:center; background:#fff; font-style:italic; color:var(--muted);">
+            Open until midnight on Fridays and Saturdays in July & August
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="text-align:center; margin-top:2rem; color:var(--muted);">
+    For holiday hours or private events, <a href="tel:{{ $.Site.Params.restaurant.phone }}">call us</a>.
+  </p>
+</main>
+{{ end }}
