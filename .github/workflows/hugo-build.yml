@@ -1,17 +1,25 @@
-name: Rebuild Restaurant Website
+name: Build and Deploy Hugo Site to GitHub Pages
 
 on:
   push:
     branches:
       - main
     paths:
+      - 'site/hugo/**'
       - 'content/**'
-      - 'hugo/**'
-      - 'themes/**'
+      - 'data/**'
+      - '.github/workflows/hugo-build.yml'
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -25,27 +33,18 @@ jobs:
           hugo-version: '0.134.2'
           extended: true
 
-      - name: Build site
+      - name: Sync CMS content to Hugo
+        run: python3 ../sync_to_hugo.py --hugo-dir ./site/hugo
+
+      - name: Build Hugo site
         run: hugo --theme=the-copper-kettle --gc --minify
+        working-directory: ./site/hugo
 
-      - name: Deploy to cPanel
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USER: ${{ secrets.FTP_USER }}
-          FTP_PASS: ${{ secrets.FTP_PASS }}
-          FTP_TARGET: /public_html/
-        run: |
-          curl -s -T public/index.html \
-            -u "$FTP_USER:$FTP_PASS" \
-            "$FTP_HOST$FTP_TARGETindex.html" || true
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site/hugo/public
 
-  # Fallback: rsync to web root
-  # - name: Deploy via rsync
-  #   uses: burnett01/rsync-deployments@1.0
-  #   with:
-  #     server: ${{ secrets.RSYNC_HOST }}
-  #     user: ${{ secrets.RSYNC_USER }}
-  #     key: ${{ secrets.RSYNC_KEY }}
-  #     port: 22
-  #     local_path: ./public/
-  #     remote_path: /home/gentoolink/public_html/
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
