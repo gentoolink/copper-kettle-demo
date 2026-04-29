@@ -1,0 +1,40 @@
+timezone: "America/Vancouver"
+updated: "2026-04-29"
+
+regular:
+  monday:
+    open: "11:00"
+    close: "22:00"
+    closed: false
+  tuesday:
+    open: "11:30"
+    close: "21:00"
+    closed: false
+  wednesday:
+    open: "11:30"
+    close: "22:00"
+    closed: false
+  thursday:
+    open: "11:30"
+    close: "22:00"
+    closed: false
+  friday:
+    open: "11:30"
+    close: "23:00"
+    closed: false
+  saturday:
+    open: "10:00"
+    close: "23:00"
+    closed: false
+  sunday:
+    open: "10:00"
+    close: "20:00"
+    closed: false
+
+holidays:
+  2026-12-25: "Christmas Day — Closed"
+  2026-12-26: "Boxing Day — Closed"
+  2027-01-01: "New Year's Day — Closed"
+
+seasonal_note: "Open until midnight on Fridays and Saturdays in July & August"
+winter_note: "Reduced hours in January — closes at 8pm Mon–Thu"

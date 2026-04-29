@@ -11,45 +11,54 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Monday</td>
-          <td>11:00 – 22:00</td>
-        </tr>
-        <tr>
-          <td>Tuesday</td>
-          <td>11:30 – 21:00</td>
-        </tr>
-        <tr>
-          <td>Wednesday</td>
-          <td>11:30 – 22:00</td>
-        </tr>
-        <tr>
-          <td>Thursday</td>
-          <td>11:30 – 22:00</td>
-        </tr>
-        <tr>
-          <td>Friday</td>
-          <td>11:30 – 23:00</td>
-        </tr>
-        <tr>
-          <td>Saturday</td>
-          <td>10:00 – 23:00</td>
-        </tr>
-        <tr>
-          <td>Sunday</td>
-          <td>10:00 – 20:00</td>
-        </tr>
-        <tr>
-          <td colspan="2" style="text-align:center; background:#fff; font-style:italic; color:var(--muted);">
-            Open until midnight on Fridays and Saturdays in July & August
-          </td>
-        </tr>
+        {{ range $day_name, $day_data := .Site.Data.hours.regular }}
+          <tr>
+            <td>{{ $day_name | title }}</td>
+            <td>
+              {{ if $day_data.closed }}
+                <span class="closed">Closed</span>
+              {{ else }}
+                {{ $day_data.open }} – {{ $day_data.close }}
+              {{ end }}
+            </td>
+          </tr>
+        {{ end }}
       </tbody>
     </table>
   </div>
 
+  {{ with .Site.Data.hours.seasonal_note }}
+    <p style="text-align:center; margin-top:1.5rem; color:var(--muted); font-style:italic;">
+      {{ . }}
+    </p>
+  {{ end }}
+
+  {{ with .Site.Data.hours.winter_note }}
+    <p style="text-align:center; margin-top:0.5rem; color:var(--muted); font-style:italic;">
+      {{ . }}
+    </p>
+  {{ end }}
+
+  {{ if .Site.Data.hours.holidays }}
+    <h2 style="font-size:1.5rem; color:var(--primary); margin-top:2.5rem; margin-bottom:1rem; text-align:center;">
+      Holiday Hours
+    </h2>
+    <div class="hours-table">
+      <table>
+        <tbody>
+          {{ range $date, $note := .Site.Data.hours.holidays }}
+            <tr>
+              <td>{{ $date }}</td>
+              <td class="closed">{{ $note }}</td>
+            </tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+  {{ end }}
+
   <p style="text-align:center; margin-top:2rem; color:var(--muted);">
-    For holiday hours or private events, <a href="tel:{{ $.Site.Params.restaurant.phone }}">call us</a>.
+    For private events or holiday reservations, <a href="tel:{{ $.Site.Params.restaurant.phone }}">call us</a>.
   </p>
 </main>
 {{ end }}

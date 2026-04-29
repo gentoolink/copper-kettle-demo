@@ -1,3 +1,4 @@
 ---
 title: "Hours"
+layout: "hours"
 ---
