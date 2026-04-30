@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Copper Kettle | Farm-to-Table Dining in Vanderhoof</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">The Copper Kettle</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="specials.html">Specials</a></li>
+        <li><a href="hours.html">Hours</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Farm-to-Table Dining</h1>
+      <p>Fresh, local, and crafted with care in the heart of Vanderhoof</p>
+      <a href="menu.html" class="btn">View Menu</a>
+    </section>
+
+    <section class="info">
+      <div class="info-card">
+        <h3>Location</h3>
+        <p>123 Farmhouse Road<br>Vanderhoof, BC</p>
+      </div>
+      <div class="info-card">
+        <h3>Contact</h3>
+        <p>(250) 567-8901</p>
+      </div>
+      <div class="info-card">
+        <h3>Hours</h3>
+        <p id="home-hours">Loading...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 The Copper Kettle. All rights reserved.</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    loadHours('home-hours');
+  </script>
+</body>
+</html>
