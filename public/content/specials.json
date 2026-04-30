@@ -1,0 +1,19 @@
+{
+  "specials": [
+    {
+      "name": "Friday Fish & Chips",
+      "price": "22.00",
+      "description": "Beer-battered Pacific cod, hand-cut fries, slaw, tartar sauce"
+    },
+    {
+      "name": "Sunday Roast",
+      "price": "28.00",
+      "description": "Slow-roasted prime rib, Yorkshire pudding, roast potatoes, gravy"
+    },
+    {
+      "name": "Midweek Mushroom Special",
+      "price": "19.00",
+      "description": "Tuesdays & Wednesdays — Forest mushroom ragout over wild rice"
+    }
+  ]
+}
