@@ -1,0 +1,64 @@
+{{ define "main" }}
+<main>
+  <h1 class="page-title">Hours</h1>
+
+  <div class="hours-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Hours</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $day_name, $day_data := .Site.Data.hours.regular }}
+          <tr>
+            <td>{{ $day_name | title }}</td>
+            <td>
+              {{ if $day_data.closed }}
+                <span class="closed">Closed</span>
+              {{ else }}
+                {{ $day_data.open }} – {{ $day_data.close }}
+              {{ end }}
+            </td>
+          </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </div>
+
+  {{ with .Site.Data.hours.seasonal_note }}
+    <p style="text-align:center; margin-top:1.5rem; color:var(--muted); font-style:italic;">
+      {{ . }}
+    </p>
+  {{ end }}
+
+  {{ with .Site.Data.hours.winter_note }}
+    <p style="text-align:center; margin-top:0.5rem; color:var(--muted); font-style:italic;">
+      {{ . }}
+    </p>
+  {{ end }}
+
+  {{ if .Site.Data.hours.holidays }}
+    <h2 style="font-size:1.5rem; color:var(--primary); margin-top:2.5rem; margin-bottom:1rem; text-align:center;">
+      Holiday Hours
+    </h2>
+    <div class="hours-table">
+      <table>
+        <tbody>
+          {{ range $date, $note := .Site.Data.hours.holidays }}
+            <tr>
+              <td>{{ $date }}</td>
+              <td class="closed">{{ $note }}</td>
+            </tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+  {{ end }}
+
+  <p style="text-align:center; margin-top:2rem; color:var(--muted);">
+    For private events or holiday reservations, <a href="tel:{{ $.Site.Params.restaurant.phone }}">call us</a>.
+  </p>
+</main>
+{{ end }}

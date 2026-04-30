@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="hero">
+  <h1>{{ .Site.Params.restaurant.name }}</h1>
+  <p>{{ .Site.Params.restaurant.tagline }}</p>
+  <a href="/menu" class="hero-cta">View Our Menu</a>
+</div>
+
+<main>
+  <h1 class="page-title">Welcome</h1>
+  <p style="text-align:center; max-width:700px; margin:0 auto 3rem; font-size:1.1rem; color:var(--muted);">
+    {{ .Site.Params.restaurant.description }}
+  </p>
+
+  {{ range where .Site.RegularPages "Section" "menu" }}
+    {{ if eq .CurrentSection.Title "Specials" }}{{ end }}
+  {{ end }}
+
+  <h2 style="text-align:center; font-size:2rem; margin-bottom:2rem;">Tonight's Specials</h2>
+  <div class="specials-grid">
+    {{ range where .Site.RegularPages "Section" "specials" }}
+      {{ if .Params.available }}
+        <div class="special-card">
+          <h3>{{ .Title }}</h3>
+          <p>{{ .Description }}</p>
+          {{ with .Params.price }}<div class="special-price">${{ . }}</div>{{ end }}
+          {{ with .Params.days }}<div class="special-days">{{ delimit . ", " | title }}</div>{{ end }}
+          {{ with .Params.note }}<div class="special-note">{{ . }}</div>{{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
+  </div>
+
+  <p style="text-align:center; margin-top:3rem;">
+    <a href="/specials" class="hero-cta" style="background:var(--primary); color:#fff;">See All Specials</a>
+  </p>
+</main>
+{{ end }}

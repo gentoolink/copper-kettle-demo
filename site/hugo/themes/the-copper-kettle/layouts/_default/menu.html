@@ -1,0 +1,31 @@
+{{ define "main" }}
+<main>
+  <h1 class="page-title">Our Menu</h1>
+
+  {{ $menuSections := slice "starters" "mains" "desserts" }}
+  {{ $sectionTitles := dict "starters" "Starters" "mains" "Main Courses" "desserts" "Desserts" }}
+
+  {{ range $section := $menuSections }}
+    <div class="menu-section">
+      {{ range where $.Site.RegularPages "Section" "menu" }}
+        {{ if and (eq .Params.menu_section $section) }}
+          <h2>{{ index $sectionTitles $section }}</h2>
+        {{ end }}
+      {{ end }}
+
+      <div class="menu-grid">
+        {{ range where $.Site.RegularPages "Section" "menu" }}
+          {{ if and (eq .Params.menu_section $section) .Params.available }}
+            <div class="menu-item">
+              <h3>{{ .Title }}</h3>
+              <span class="price">${{ .Params.price }}</span>
+              <p class="desc">{{ .Description }}</p>
+              {{ with .Params.tags }}<p class="tags">{{ delimit . ", " }}</p>{{ end }}
+            </div>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+</main>
+{{ end }}
