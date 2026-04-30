@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "version": 2,
+    "last_updated": "2026-04-29T10:00:00Z",
+    "updated_by": "copper_agent"
+  },
+  "active": [
+    {
+      "id": "special-wed-0429",
+      "title": "Wednesday Wine Down",
+      "description": "Half-price bottles of BC VQA wines all day every Wednesday",
+      "category": "wine",
+      "days": ["wednesday"],
+      "price": null,
+      "note": "Half-price applies to bottles under $60",
+      "available": true,
+      "image": "/images/specials/wine-wednesday.jpg"
+    },
+    {
+      "id": "special-lobster",
+      "title": "Spring Lobster Special",
+      "description": "Butter-poached lobster tail, saffron risotto, charred asparagus, truffle oil",
+      "category": "entree",
+      "days": ["friday", "saturday", "sunday"],
+      "price": 54,
+      "available": true,
+      "image": "/images/specials/lobster-special.jpg"
+    }
+  ],
+  "seasonal": [
+    {
+      "id": "seasonal-spring-2026",
+      "title": "Spring Menu",
+      "description": "Asparagus, fiddleheads, ramps, and fresh herbs from local farms",
+      "note": "Ask your server about today's harvest selections",
+      "available": true
+    }
+  ]
+}

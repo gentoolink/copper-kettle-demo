@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "version": 2,
+    "last_updated": "2026-04-29T22:54:06Z",
+    "updated_by": "agent"
+  },
+  "timezone": "America/Vancouver",
+  "hours": {
+    "monday": {
+      "open": "11:00",
+      "close": "22:00",
+      "closed": false
+    },
+    "tuesday": {
+      "open": "11:30",
+      "close": "21:00",
+      "closed": false
+    },
+    "wednesday": {
+      "open": "11:30",
+      "close": "22:00",
+      "closed": false
+    },
+    "thursday": {
+      "open": "11:30",
+      "close": "22:00",
+      "closed": false
+    },
+    "friday": {
+      "open": "11:30",
+      "close": "23:00",
+      "closed": false
+    },
+    "saturday": {
+      "open": "10:00",
+      "close": "23:00",
+      "closed": false
+    },
+    "sunday": {
+      "open": "10:00",
+      "close": "20:00",
+      "closed": false
+    }
+  },
+  "holidays": {
+    "2026-12-25": {
+      "closed": true,
+      "note": "Christmas Day"
+    },
+    "2026-12-26": {
+      "closed": true,
+      "note": "Boxing Day"
+    },
+    "2027-01-01": {
+      "closed": true,
+      "note": "New Year's Day"
+    }
+  },
+  "seasonal_notes": {
+    "summer": "Open until midnight on Fridays and Saturdays in July & August",
+    "winter": "Reduced hours in January — closes at 8pm Mon-Thu"
+  }
+}

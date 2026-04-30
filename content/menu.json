@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "version": 4,
+    "last_updated": "2026-04-29T22:54:06Z",
+    "updated_by": "ken_test"
+  },
+  "categories": [
+    {
+      "id": "starters",
+      "name": "Starters",
+      "description": "Small plates to awaken the appetite",
+      "items": [
+        {
+          "id": "smoked-salmon-tartare",
+          "name": "Smoked Salmon Tartare",
+          "description": "Wild BC smoked salmon, capers, shallots, lemon oil, blinis",
+          "price": 18,
+          "tags": [
+            "gluten-free"
+          ],
+          "available": true,
+          "image": "/images/menu/smoked-salmon-tartare.jpg"
+        },
+        {
+          "id": "roasted-beet-salad",
+          "name": "Roasted Beet Salad",
+          "description": "Local beets, chèvre, candied walnuts, arugula, honey vinaigrette",
+          "price": 14,
+          "tags": [
+            "vegetarian",
+            "gluten-free"
+          ],
+          "available": true,
+          "image": "/images/menu/roasted-beet-salad.jpg"
+        },
+        {
+          "id": "truffle-parmesan-fries",
+          "name": "Truffle Parmesan Fries",
+          "description": "Hand-cut Kennebec potatoes, parmesan, truffle oil, fresh herbs",
+          "price": 14.5,
+          "tags": [
+            "vegetarian"
+          ],
+          "available": true,
+          "image": "/images/menu/truffle-fries.jpg"
+        }
+      ]
+    },
+    {
+      "id": "mains",
+      "name": "Main Courses",
+      "description": "Hearty dishes from land and sea",
+      "items": [
+        {
+          "id": "herb-crusted-halibut",
+          "name": "Herb-Crusted Halibut",
+          "description": "Pacific halibut, herb breadcrumb, roasted fingerlings, seasonal vegetables, lemon butter",
+          "price": 38,
+          "tags": [
+            "gluten-free"
+          ],
+          "available": true,
+          "image": "/images/menu/herb-halibut.jpg"
+        },
+        {
+          "id": "braised-bison-short-rib",
+          "name": "Braised Bison Short Rib",
+          "description": "12-hour braised local bison, red wine reduction, creamy polenta, gremolata",
+          "price": 42,
+          "tags": [
+            "gluten-free"
+          ],
+          "available": true,
+          "image": "/images/menu/bison-short-rib.jpg"
+        }
+      ]
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "description": "Sweet endings",
+      "items": [
+        {
+          "id": "dark-chocolate-torte",
+          "name": "Dark Chocolate Torte",
+          "description": "72% dark chocolate, raspberry coulis, whipped crème fraîche",
+          "price": 12,
+          "tags": [
+            "vegetarian",
+            "gluten-free"
+          ],
+          "available": true,
+          "image": "/images/menu/chocolate-torte.jpg"
+        }
+      ]
+    }
+  ]
+}
