@@ -5,10 +5,10 @@ on:
     branches:
       - main
     paths:
-      - 'examples/demo-restaurant/site/hugo/**'
-      - 'examples/demo-restaurant/content/**'
-      - 'examples/demo-restaurant/data/**'
-      - 'examples/demo-restaurant/sync_to_hugo.py'
+      - 'site/hugo/**'
+      - 'content/**'
+      - 'data/**'
+      - 'sync_to_hugo.py'
       - '.github/workflows/hugo-build.yml'
 
 jobs:
@@ -36,16 +36,15 @@ jobs:
 
       - name: Sync CMS content to Hugo
         run: python3 sync_to_hugo.py
-        working-directory: ./examples/demo-restaurant
 
       - name: Build Hugo site
         run: hugo --theme=the-copper-kettle --gc --minify
-        working-directory: ./examples/demo-restaurant/site/hugo
+        working-directory: ./site/hugo
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./examples/demo-restaurant/site/hugo/public
+          path: ./site/hugo/public
 
       - name: Deploy to GitHub Pages
         id: deployment
