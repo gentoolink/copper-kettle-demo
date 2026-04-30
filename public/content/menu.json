@@ -1,0 +1,41 @@
+{
+  "categories": [
+    {
+      "name": "Starters",
+      "items": [
+        { "name": "Warm Potato Leek Soup", "price": "8.50", "description": "Local potatoes, fresh leeks, cream finish" },
+        { "name": "Seasonal Greens Salad", "price": "12.00", "description": "Mixed greens, heirloom carrots, walnut vinaigrette" },
+        { "name": "Crispy Pork Belly Bites", "price": "14.00", "description": "Braised 48 hours, apple reduction, pickled onions" },
+        { "name": "Wild Mushroom Crostini", "price": "11.00", "description": "Forest mushrooms, truffle oil, garlic crostini" }
+      ]
+    },
+    {
+      "name": "Mains",
+      "items": [
+        { "name": "Herb-Crusted Rack of Pork", "price": "32.00", "description": "Local pork, rosemary jus, roasted root vegetables" },
+        { "name": "Pan-Seared Steelhead", "price": "34.00", "description": "BC steelhead, lemon beurre blanc, seasonal greens" },
+        { "name": "Braised Beef Short Rib", "price": "36.00", "description": "48-hour braise, red wine reduction, potato puree" },
+        { "name": "Wild Rice & Mushroom Risotto", "price": "24.00", "description": "Vegan, arborio rice, foraged mushrooms, truffle oil" },
+        { "name": "Duck Breast", "price": "35.00", "description": "Seared duck breast, cherry gastrique, root vegetable hash" }
+      ]
+    },
+    {
+      "name": "Desserts",
+      "items": [
+        { "name": "Apple Crumble", "price": "9.00", "description": "Local apples, oat crumble, vanilla bean ice cream" },
+        { "name": "Chocolate Torte", "price": "10.00", "description": "Flourless chocolate cake, raspberry coulis" },
+        { "name": "Berry Panna Cotta", "price": "8.50", "description": "Wild berry compote, set mascarpone cream" }
+      ]
+    },
+    {
+      "name": "Beverages",
+      "items": [
+        { "name": "Coffee", "price": "3.50", "description": "Locally roasted, fair trade" },
+        { "name": "Espresso", "price": "4.00", "description": "Double shot, locally roasted" },
+        { "name": "Hot Chocolate", "price": "4.50", "description": "House-made, real chocolate" },
+        { "name": "Orange Juice", "price": "4.00", "description": "Fresh-squeezed daily" },
+        { "name": "Soft Drinks", "price": "3.00", "description": "Coca-Cola, Sprite, ginger ale" }
+      ]
+    }
+  ]
+}
