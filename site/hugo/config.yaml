@@ -2,6 +2,7 @@ baseURL: "https://copperkettle.ca"
 languageCode: "en-ca"
 title: "The Copper Kettle"
 theme: "the-copper-kettle"
+themesDir: "./themes"
 
 timeout: "30s"
 enableRobotsTXT: true

@@ -38,7 +38,7 @@ jobs:
         run: python3 sync_to_hugo.py
 
       - name: Build Hugo site
-        run: hugo --theme=the-copper-kettle --gc --minify
+        run: hugo --gc --minify
         working-directory: ./site/hugo
 
       - name: Upload Pages artifact
